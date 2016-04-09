@@ -16,6 +16,7 @@
 		F19ABD261CB307FA00AF4471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19ABD241CB307FA00AF4471 /* LaunchScreen.storyboard */; };
 		F19ABD311CB307FA00AF4471 /* TipCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19ABD301CB307FA00AF4471 /* TipCalculatorTests.swift */; };
 		F19ABD3C1CB307FA00AF4471 /* TipCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19ABD3B1CB307FA00AF4471 /* TipCalculatorUITests.swift */; };
+		F1D1F38E1CB9BEF800537DA5 /* ViewControllerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1F38D1CB9BEF800537DA5 /* ViewControllerSpecs.swift */; };
 		F1F8A87A1CB308FC009B7230 /* TipCalculatorModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F8A8791CB308FC009B7230 /* TipCalculatorModelSpecs.swift */; };
 		FBBBCC2C606FC028283B7F21 /* Pods_TipCalculatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF2BE2A385C03EF02440D7C /* Pods_TipCalculatorTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		F19ABD371CB307FA00AF4471 /* TipCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19ABD3B1CB307FA00AF4471 /* TipCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorUITests.swift; sourceTree = "<group>"; };
 		F19ABD3D1CB307FA00AF4471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1D1F38D1CB9BEF800537DA5 /* ViewControllerSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSpecs.swift; sourceTree = "<group>"; };
 		F1F8A8791CB308FC009B7230 /* TipCalculatorModelSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModelSpecs.swift; sourceTree = "<group>"; };
 		FF20EB6C05CA9682BEA61A5A /* Pods-TipCalculatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipCalculatorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TipCalculatorUITests/Pods-TipCalculatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				F19ABD301CB307FA00AF4471 /* TipCalculatorTests.swift */,
 				F19ABD321CB307FA00AF4471 /* Info.plist */,
 				F1F8A8791CB308FC009B7230 /* TipCalculatorModelSpecs.swift */,
+				F1D1F38D1CB9BEF800537DA5 /* ViewControllerSpecs.swift */,
 			);
 			path = TipCalculatorTests;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D1F38E1CB9BEF800537DA5 /* ViewControllerSpecs.swift in Sources */,
 				F1F8A87A1CB308FC009B7230 /* TipCalculatorModelSpecs.swift in Sources */,
 				F19ABD311CB307FA00AF4471 /* TipCalculatorTests.swift in Sources */,
 			);
