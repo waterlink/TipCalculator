@@ -6,6 +6,16 @@ import Nimble
 
 class ViewControllerSpecs: QuickSpec {
     override func spec() {
+        let defaultTaxPercentageSliderValue: Float = 6
+        
+        var defaultTaxPercentage: Float { get {
+            return defaultTaxPercentageSliderValue / 10.0
+        } }
+    
+        var defaultTaxPercentageLabelText: String { get {
+            return "Tax Percentage (\(Int(defaultTaxPercentage * 100))%)"
+        } }
+        
         var totalTextField: MockEditable!
         var taxPercentageSlider: UISlider!
         var taxPercentageLabel: UILabel!
@@ -30,7 +40,7 @@ class ViewControllerSpecs: QuickSpec {
             let slider = UISlider()
             slider.minimumValue = 0
             slider.maximumValue = 10
-            slider.value = 6
+            slider.value = defaultTaxPercentageSliderValue
             return slider
         }
         
@@ -132,6 +142,15 @@ class ViewControllerSpecs: QuickSpec {
                 it("subscribes to the model") {
                     subject.tipCalculatorModel?.taxPercentage = 0.75
                     expect(taxPercentageLabel.text).to(equal("Tax Percentage (75%)"))
+                }
+                
+                it("initializes model's taxPercentage according to current slider value") {
+                    let taxPercentage = subject.tipCalculatorModel!.taxPercentage
+                    expect(taxPercentage).to(beCloseTo(defaultTaxPercentage))
+                }
+                
+                it("updates view with initial values") {
+                    expect(taxPercentageLabel.text).to(equal(defaultTaxPercentageLabelText))
                 }
             }
         }

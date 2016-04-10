@@ -23,6 +23,7 @@ class ViewController: UIViewController, TipCalculatorModelObserver {
                 taxPercentage: CalculateTaxPercentageValue()
             )
             tipCalculatorModel?.subscribe(self)
+            handleTipCalculatorModelChange(tipCalculatorModel!)
         }
     }
 
