@@ -16,7 +16,3 @@ target 'TipCalculatorTests' do
   testing_pods
 end
 
-target 'TipCalculatorUITests' do
-  testing_pods
-end
-
