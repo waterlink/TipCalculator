@@ -1,10 +1,10 @@
 class TipCalculatorModel {
-    private let total: Double
-    private let taxPct: Double
+    var total: Double
+    var taxPercentage: Double
     
-    init(total: Double, taxPct: Double) {
+    init(total: Double, taxPercentage: Double) {
         self.total = total
-        self.taxPct = taxPct
+        self.taxPercentage = taxPercentage
     }
     
     func calcTipWithTipPct(tipPct: Double) -> Double {
@@ -12,6 +12,6 @@ class TipCalculatorModel {
     }
     
     private func subtotal() -> Double {
-        return total / (taxPct + 1)
+        return total / (taxPercentage + 1)
     }
 }

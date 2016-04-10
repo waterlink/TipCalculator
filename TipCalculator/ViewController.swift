@@ -12,19 +12,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var taxPercentageLabel: UILabel!
     @IBOutlet weak var resultsTextView: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    var tipCalculatorModel: TipCalculatorModel!
 
     @IBAction func handleTap(sender: AnyObject) {
         totalTextField.endEditing(true)
     }
 
+    @IBAction func handleTaxPercentageChange(sender: AnyObject) {
+        tipCalculatorModel.taxPercentage = taxPercentageValue()
+    }
+    
+    private func taxPercentageValue() -> Double {
+        return taxPercentageSliderCurrentValue() / taxPercentageSliderMaxValue()
+    }
+    
+    private func taxPercentageSliderMaxValue() -> Double {
+        return Double(taxPercentageSlider.maximumValue)
+    }
+    
+    private func taxPercentageSliderCurrentValue() -> Double {
+        return Double(taxPercentageSlider.value)
+    }
 }
 

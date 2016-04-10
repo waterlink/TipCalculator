@@ -37,6 +37,9 @@
                             </textField>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-cz-WWI">
                                 <rect key="frame" x="189" y="116" width="393" height="31"/>
+                                <connections>
+                                    <action selector="handleTaxPercentageChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bfb-9q-wuY"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUd-DQ-DCx">
                                 <rect key="frame" x="268" y="154" width="64" height="30"/>
