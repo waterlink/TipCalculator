@@ -6,7 +6,9 @@ import UIKit
 
 extension UITextField: Editable {}
 
-class ViewController: UIViewController, TipCalculatorModelObserver {
+class ViewController: UIViewController {
+    private let defaultTotal: Double = 0
+    
     @IBOutlet weak var totalTextField: Editable!
     @IBOutlet weak var taxPercentageSlider: UISlider!
     @IBOutlet weak var taxPercentageLabel: UILabel!
@@ -16,15 +18,7 @@ class ViewController: UIViewController, TipCalculatorModelObserver {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if tipCalculatorModel == nil {
-            tipCalculatorModel = TipCalculatorModel(
-                total: 0,
-                taxPercentage: CalculateTaxPercentageValue()
-            )
-            tipCalculatorModel?.subscribe(self)
-            handleTipCalculatorModelChange(tipCalculatorModel!)
-        }
+        ensureModelIsPresent()
     }
 
     @IBAction func handleTap(sender: AnyObject) {
@@ -34,9 +28,48 @@ class ViewController: UIViewController, TipCalculatorModelObserver {
     @IBAction func handleTaxPercentageChange(sender: AnyObject) {
         tipCalculatorModel?.taxPercentage = CalculateTaxPercentageValue()
     }
-    
+}
+
+// MARK: TipCalculatorModelObserver
+
+extension ViewController: TipCalculatorModelObserver {
     func handleTipCalculatorModelChange(model: TipCalculatorModel) {
         taxPercentageLabel.text = TipCalculatorPresenter(model: model).presentTaxPercentageLabel()
+    }
+}
+
+// MARK: @private
+
+extension ViewController {
+    private func isModelInitializationPending() -> Bool {
+        return tipCalculatorModel == nil
+    }
+    
+    private func ensureModelIsPresent() {
+        if isModelInitializationPending() {
+            initializeModel()
+        }
+    }
+    
+    private func initializeModel() {
+        tipCalculatorModel = buildTipCalculatorModel()
+        subscribeToModelChanges()
+        makeInitialViewUpdate()
+    }
+    
+    private func buildTipCalculatorModel() -> TipCalculatorModel {
+        return TipCalculatorModel(
+            total: defaultTotal,
+            taxPercentage: CalculateTaxPercentageValue()
+        )
+    }
+    
+    private func subscribeToModelChanges() {
+        tipCalculatorModel?.subscribe(self)
+    }
+    
+    private func makeInitialViewUpdate() {
+        handleTipCalculatorModelChange(tipCalculatorModel!)
     }
     
     private func CalculateTaxPercentageValue() -> Double {
